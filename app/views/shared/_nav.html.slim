@@ -1,0 +1,15 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand News
+  button.navbar-toggler href="#" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+    span.navbar-toggler-icon
+
+  div.collapse.navbar-collapse#navbarNav
+    ul.navbar-nav
+      li.nav-item
+        = link_to "Home", root_path, class: "nav-link active"
+      li.nav-item
+        = link_to "Categories", root_path, class: "nav-link active"
+      li.nav-item
+        a.nav-link href="#" Profile
+    ul.navbar-nav.ml-auto
+      = render 'shared/nav_signin' 
