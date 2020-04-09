@@ -3,7 +3,7 @@
     .col-12
       .card
         .card-body
-          = render 'form'
+          = render 'form', locals: {form_type: "edit"}
         .card-body.ml-auto
           => link_to 'Show', @article
           '|

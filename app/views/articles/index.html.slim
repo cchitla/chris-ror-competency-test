@@ -6,8 +6,8 @@
         .card-body
           h5.card-title 
             = article.title
-          h6.card-subtitle 
-            = article.author
+          h6.card-subtitle
+            | By #{article.user.first_name} #{article.user.last_name}
           .card-text
             = article.content
           span

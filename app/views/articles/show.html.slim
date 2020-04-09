@@ -6,7 +6,7 @@
           h3.card-title
             = @article.title
           h5.card-subtitle
-            = @article.author
+            | By #{@article.user.first_name} #{@article.user.last_name}
           .card-text
             = @article.content
 
