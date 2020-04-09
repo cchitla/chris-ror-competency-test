@@ -4,8 +4,8 @@ table
   thead
     tr
       th Title
+      th Author
       th Content
-      th
       th
       th
 
@@ -13,11 +13,34 @@ table
     - @articles.each do |article|
       tr
         td = article.title
+        td = article.author
         td = article.content
         td = link_to 'Show', article
         td = link_to 'Edit', edit_article_path(article)
         td = link_to 'Destroy', article, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
+
+
+.container
+  .row
+    .col-4
+      .h3 Cat 1
+      - @articles.each do |article|
+        .card-body
+          h5.card-title 
+            = article.title
+          h6.card-subtitle 
+            = article.author
+          .card-text
+            = article.content
+
+    .col-4
+
+      h1 Cat 2
+    .col-4
+      h1 Cat 3
+
+
 
 = link_to 'New Article', new_article_path

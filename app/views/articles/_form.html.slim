@@ -10,6 +10,10 @@
     = f.label :title
     = f.text_field :title
   .field
+    = f.label :author
+    = f.text_field :author, value: current_user.email 
+
+  .field
     = f.label :content
     = f.text_area :content
   .actions = f.submit
