@@ -1,8 +1,11 @@
-h1 Editing article
-
-== render 'form'
-
-=> link_to 'Show', @article
-'|
-=< link_to 'Back', articles_path
+.container
+  .row.mt-3
+    .col-12
+      .card
+        .card-body
+          = render 'form'
+        .card-body.ml-auto
+          => link_to 'Show', @article
+          '|
+          =< link_to 'Back', articles_path
 

@@ -1,18 +1,16 @@
-p#notice = notice
+.container
+  .row.mt-3
+    .col-12
+      .card
+        .card-body
+          h3.card-title
+            = @article.title
+          h5.card-subtitle
+            = @article.author
+          .card-text
+            = @article.content
 
-p
-  strong Title:
-  = @article.title
-
-p
-  strong Author:
-  = @article.author
-
-p
-  strong Content:
-  = @article.content
-
-
-=> link_to 'Edit', edit_article_path(@article)
-'|
-=< link_to 'Back', articles_path
+        .card-body.ml-auto
+          => link_to 'Edit', edit_article_path(@article)
+          '|
+          =< link_to 'Back', articles_path

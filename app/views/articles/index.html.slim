@@ -1,29 +1,5 @@
-h1 Listing articles
-
-table
-  thead
-    tr
-      th Title
-      th Author
-      th Content
-      th
-      th
-
-  tbody
-    - @articles.each do |article|
-      tr
-        td = article.title
-        td = article.author
-        td = article.content
-        td = link_to 'Show', article
-        td = link_to 'Edit', edit_article_path(article)
-        td = link_to 'Destroy', article, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-
 .container
-  .row
+  .row.mt-3
     .col-4
       .h3 Cat 1
       - @articles.each do |article|
@@ -34,6 +10,10 @@ br
             = article.author
           .card-text
             = article.content
+          span
+            = link_to "Continue Reading", article, class: 'btn btn-primary'
+            = link_to 'Edit', edit_article_path(article), class: 'btn btn-warning'
+            = link_to 'Delete', article, data: { confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger'
 
     .col-4
 
