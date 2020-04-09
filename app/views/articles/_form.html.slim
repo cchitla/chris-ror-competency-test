@@ -1,0 +1,36 @@
+= form_for @article do |f|
+  - if @article.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
+      ul
+        - @article.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :title
+    br
+    = f.text_field :title
+
+  .field
+    = f.label "Author"
+    br
+    - if locals[:form_type] == "new"
+      = f.text_field :user_id, value: "#{current_user.first_name} #{current_user.last_name}"
+    - elsif locals[:form_type] == "edit"
+      = f.text_field :user_id, value: "#{@article.user.first_name} #{@article.user.last_name}"
+
+  .field
+    = f.hidden_field :user_id, value: current_user.id unless current_user == nil
+
+  .field
+    = f.label :content
+    br
+    = f.text_area :content
+  .actions = f.submit
+
+  p
+    = locals
+  p
+    = current_user.inspect
+  p  
+    = @article.inspect

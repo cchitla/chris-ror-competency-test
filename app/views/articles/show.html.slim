@@ -1,0 +1,16 @@
+.container
+  .row.mt-3
+    .col-12
+      .card
+        .card-body
+          h3.card-title
+            = @article.title
+          h5.card-subtitle
+            | By #{@article.user.first_name} #{@article.user.last_name}
+          .card-text
+            = @article.content
+
+        .card-body.ml-auto
+          => link_to 'Edit', edit_article_path(@article)
+          '|
+          =< link_to 'Back', articles_path
