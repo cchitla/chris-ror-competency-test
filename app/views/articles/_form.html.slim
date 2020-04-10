@@ -23,14 +23,14 @@
     = f.hidden_field :user_id, value: current_user.id unless current_user == nil
 
   .field
+    = f.label "Category"
+    br
+    = f.collection_select(:category_id, Category.all, :id, :title)
+
+  .field
     = f.label :content
     br
     = f.text_area :content
   .actions = f.submit
 
-  p
-    = locals
-  p
-    = current_user.inspect
-  p  
-    = @article.inspect
+
