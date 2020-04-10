@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy], admin: :all
+  access admin: [:index, :show, :new, :edit, :create, :update, :destroy], guest: [:index]
 
   # GET /articles
   def index
