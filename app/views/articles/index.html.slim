@@ -1,26 +1,11 @@
 .container
   .row.mt-3
     .col-4
-      .h3 Cat 1
-      - @articles.each do |article|
-        .card-body
-          h5.card-title 
-            = article.title
-          h6.card-subtitle
-            | By #{article.user.first_name} #{article.user.last_name}
-          .card-text
-            = article.content
-          span
-            = link_to "Continue Reading", article, class: 'btn btn-primary'
-            = link_to 'Edit', edit_article_path(article), class: 'btn btn-warning'
-            = link_to 'Delete', article, data: { confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger'
-
+      = render "display_index", locals: { category: "Local"}
     .col-4
-
-      h1 Cat 2
+      = render "display_index", locals: { category: "Regional" }
     .col-4
-      h1 Cat 3
-
+      = render "display_index", locals: { category: "National" }
 
 
 = link_to 'New Article', new_article_path
