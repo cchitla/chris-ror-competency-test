@@ -7,8 +7,10 @@
             = @article.title
           h5.card-subtitle
             | By #{@article.user.first_name} #{@article.user.last_name}
-          .card-text
-            = @article.content.html_safe
+          - @article.content.split("\r\n\r").each do |paragraph|
+            br
+            .card-text
+              = paragraph
 
         .card-body.ml-auto
           => link_to 'Edit', edit_article_path(@article)

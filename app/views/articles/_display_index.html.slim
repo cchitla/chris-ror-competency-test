@@ -10,7 +10,7 @@ h2.article-heading.text-center
         | By #{article.user.first_name} #{article.user.last_name}
       hr
       .card-text
-        = article.content.split("<br>")[0]
+        = article.content.split("\r\n\r")[0]
       span
         = link_to "Continue Reading", article, class: 'btn btn-primary'
         = link_to 'Edit', edit_article_path(article), class: 'btn btn-warning'
