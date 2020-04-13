@@ -12,5 +12,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
     ul.navbar-nav.ml-auto
       - if logged_in? :admin
         li.nav-item
-          = link_to "Admin Tools", root_path, class: "nav-link"
-      = render 'shared/nav_signin' 
+          = link_to "Admin Tools", admin_dashboard_path, class: "nav-link"
+      - if logged_in? :editor
+          = link_to "New Article", new_article_path, class: "btn btn-success" 
+      = render 'shared/nav_signin'

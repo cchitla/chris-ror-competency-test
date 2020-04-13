@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin/dashboard'
+
   devise_for :users
   root to: 'articles#index'
 
