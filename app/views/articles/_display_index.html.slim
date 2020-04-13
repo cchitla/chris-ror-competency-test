@@ -12,7 +12,10 @@ h2.article-heading.text-center
       .card-text
         = article.content.split("\r\n\r")[0]
       span
-        = link_to "Continue Reading", article, class: 'btn btn-primary'
+        - if current_user.class == GuestUser
+          = link_to "Sign In or Register to Read More", new_user_session_path, class: 'btn btn-primary'
+        - else 
+          = link_to "Continue Reading", article, class: 'btn btn-primary'
         - if logged_in? :editor and article.user.email == current_user.email
           = link_to "Edit", edit_article_path(article), class: 'btn btn-warning'
           = link_to 'Delete', article, data: { confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger'

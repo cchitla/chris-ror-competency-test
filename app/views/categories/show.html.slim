@@ -1,4 +1,17 @@
 .container
-  .row.mt-3.text-center
-    h1
-      = @category.title
+  .row.mt-3
+    .col-12.text-center
+      h1
+        = "#{@category.title} News"
+
+      - @articles.each do |article|
+        .card-body
+          h5.card-title
+            = article.title
+          h6.card-subtitle
+            | By #{article.user.first_name} #{article.user.last_name}
+          hr
+          - article.content.split("\r\n\r").each do |paragraph|
+            br
+            .card-text
+              = paragraph

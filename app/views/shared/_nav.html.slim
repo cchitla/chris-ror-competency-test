@@ -6,8 +6,11 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
   div.collapse.navbar-collapse#navbarNav
     ul.navbar-nav
       li.nav-item
-        = link_to "Home", root_path, class: "nav-link active"
+        = link_to "Home", root_path, class: "nav-link"
       li.nav-item
-        = link_to "Categories", categories_path, class: "nav-link active"
+        = link_to "Categories", categories_path, class: "nav-link"
     ul.navbar-nav.ml-auto
+      - if logged_in? :admin
+        li.nav-item
+          = link_to "Admin Tools", root_path, class: "nav-link"
       = render 'shared/nav_signin' 
